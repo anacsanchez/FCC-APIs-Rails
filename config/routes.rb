@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :timestamp, only: :index
+    get '/timestamp/', to: 'timestamp#show'
+    get '/timestamp/:string', to: 'timestamp#show'
   end
 end
