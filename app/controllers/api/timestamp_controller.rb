@@ -8,7 +8,7 @@ module Api
         render json: { "unix" => DateTime.now.strftime("%Q"), "utc" => DateTime.now.httpdate }
       else
         input_time = params[:string].split('-').map { |num| num.to_i }
-        render json: { "utc" => Time.gm(*input_time).httpdate }
+        render json: { "unix" => DateTime.new(*input_time).strftime("%Q"), "utc" => DateTime.new(*input_time).httpdate }
       end
     end
   end
