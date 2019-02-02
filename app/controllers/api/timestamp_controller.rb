@@ -1,8 +1,8 @@
 module Api
   class TimestampController < ApiController
-    # def index
-    #   render json: { "unix" => Time.new.millisecond, "utc" => Time.new }
-    # end
+    def index
+      render json: { "unix" => DateTime.now.strftime("%Q"), "utc" => DateTime.now.httpdate }
+    end
     def show
       if !params[:string]
         render json: { "unix" => DateTime.now.strftime("%Q"), "utc" => DateTime.now.httpdate }
