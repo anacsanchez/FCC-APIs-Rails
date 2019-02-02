@@ -1,2 +1,4 @@
 # FCC Apis-Microservices Projects
-Built with Rails
+
+* Projects for freecodecamp's APIs and Microservices Certification.
+* Built with Ruby and Rails.
