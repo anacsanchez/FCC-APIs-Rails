@@ -1,7 +1,7 @@
 class Api::WhoamiController < ApiController
   def index
     render json: {
-      "ipaddress" => request.ip,
+      "ipaddress" => request.remote_ip,
       "language" => request.headers["Accept-Language"],
       "software" => request.headers["User-Agent"]
     }
