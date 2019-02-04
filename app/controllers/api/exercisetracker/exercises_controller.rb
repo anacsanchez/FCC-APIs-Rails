@@ -1,6 +1,10 @@
 class Api::Exercisetracker::ExercisesController < ApiController
   def index
-    render json: Exercise.where(user_id: params[:user_id])
+
+    # if query_params
+    #   render json: Exercise.where(date: query_params[:to]
+    # end
+    # render json: Exercise.where(user_id: params[:user_id])
   end
   def create
     @exercise = Exercise.new(exercise_params)
@@ -15,5 +19,8 @@ class Api::Exercisetracker::ExercisesController < ApiController
 
   def exercise_params
     params.permit(:description, :duration, :user_id, :date)
+  end
+  def query_params
+    params.permit(:from, :to, :limit)
   end
 end
