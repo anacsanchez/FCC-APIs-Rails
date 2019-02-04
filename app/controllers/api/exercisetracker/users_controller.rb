@@ -13,7 +13,7 @@ class Api::Exercisetracker::UsersController < ApiController
     if @user.save
       render json: @user
     else
-      user.errors.full_messages
+      @user.errors.full_messages
     end
   end
 

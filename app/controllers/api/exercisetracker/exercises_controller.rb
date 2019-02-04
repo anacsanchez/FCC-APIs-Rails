@@ -3,7 +3,12 @@ class Api::Exercisetracker::ExercisesController < ApiController
     render json: Exercise.where(user_id: params[:user_id])
   end
   def create
-    render json: exercise_params
+    @exercise = Exercise.new(exercise_params)
+    if @exercise.save
+      render json: @exercise
+    else
+      render json: @exercise.errors.full_messages
+    end
   end
 
   private
