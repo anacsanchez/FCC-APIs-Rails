@@ -12,8 +12,10 @@ Rails.application.routes.draw do
 
     namespace :exercise do
       resources :users, only: [:index, :create, :show] do
-        resources :log, only: [:index, :create, :show]
+        get '/log', to: 'users#log'
       end
     end
   end
 end
+
+# exercise => user
