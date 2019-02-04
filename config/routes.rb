@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
     get '/shorturl/:id', to: 'shorturl#show'
     post '/shorturl/new', to: 'shorturl#create'
+
+    namespace :exercise do
+      resources :users, only: []
   end
 end
