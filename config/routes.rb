@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     post '/shorturl/new', to: 'shorturl#create'
 
     namespace :exercise do
-      resources :users, only: []
+      resources :users, only: [:index, :create, :show] do
+        resources :log, only: [:index, :create, :show]
+      end
+    end
   end
 end
