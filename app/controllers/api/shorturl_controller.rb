@@ -1,8 +1,7 @@
 class Api::ShorturlController < ApiController
   def show
-    render params
-    # Shorturl.find(params[:id])
-    # render json: Shorturl.all
+    @shorturl = Shorturl.find(params[:id])
+    render json: @shorturl
   end
   def create
     @shorturl = Shorturl.new("original_url" => params[:url])
