@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     get '/shorturl/:id', to: 'shorturl#show'
     post '/shorturl/new', to: 'shorturl#create'
 
-    namespace :exercise do
+    namespace :exercisetracker  do
       resources :users, only: [:index, :create, :show] do
-        get '/log', to: 'users#log'
+        resources :exercises, only: [:index, :create]
       end
     end
   end
