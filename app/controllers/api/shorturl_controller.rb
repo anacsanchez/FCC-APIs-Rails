@@ -6,8 +6,13 @@ class Api::ShorturlController < ApiController
   end
 
   def create
+    if !params[:url].match(/(http:\/\/)|(https:\/\/)/)
+      render json: {"error" => "http:// or https:// required"}
+      return
+    end
+    clean_url = params[:url].sub(/(http:\/\/)|(https:\/\/)/, '')
     begin
-      address = Resolv.getaddress(params[:url])
+      address = Resolv.getaddress(clean_url)
       res = Resolv.getname(address)
       rescue Resolv::ResolvError => e
         render json: {"error" => "invalid URL"}
