@@ -1,13 +1,12 @@
 class Api::Exercisetracker::ExercisesController < ApiController
   def index
-    if !query_params.empty?
+    if query_params.empty?
+      render json: Exercise.where(user_id: params[:user_id])
+    else
       from =  query_params.fetch(:from) { Date.new.to_s }
-      to = query_params.fetch(:to) {Date.today.to_s}
+      to = query_params.fetch(:to) { Date.today.to_s }
       limit = query_params.fetch(:limit) { nil }
       render json: Exercise.where(date: (from..to)).limit(limit)
-      # render json: query_params
-    else
-      render json: Exercise.where(user_id: params[:user_id])
     end
   end
 
