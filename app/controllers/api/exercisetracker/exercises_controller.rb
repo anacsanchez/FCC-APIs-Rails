@@ -13,7 +13,8 @@ class Api::Exercisetracker::ExercisesController < ApiController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      render json: @exercise
+      user = User.find(params[:user_id])
+      render json: @exercise.attributes.merge("username" => user[:username])
     else
       render json: @exercise.errors.full_messages
     end
@@ -24,6 +25,7 @@ class Api::Exercisetracker::ExercisesController < ApiController
   def exercise_params
     params.permit(:description, :duration, :user_id, :date)
   end
+
   def query_params
     params.permit(:from, :to, :limit)
   end
