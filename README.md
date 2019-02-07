@@ -6,5 +6,5 @@
 - [x] Timestamp Microservice
 - [x] Request Header Parser Microservice
 - [x] URL Shortener Microservice
-- [x] Exercise Tracker - Restructured in a RESTful API format.
+- [x] Exercise Tracker - Restructured to a RESTful API format.
 - [ ] File Metadata Microservice
