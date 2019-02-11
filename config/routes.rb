@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  get '/file-metadata', to: 'file_metadata#index'
+  post '/file-metadata', to: 'file_metadata#upload'
+
   namespace :api do
     get '/timestamp', to: 'timestamp#show'
     get '/timestamp/:string', to: 'timestamp#show'
