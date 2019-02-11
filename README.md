@@ -7,4 +7,4 @@
 - [x] Request Header Parser Microservice
 - [x] URL Shortener Microservice
 - [x] Exercise Tracker - Restructured to a RESTful API format.
-- [ ] File Metadata Microservice
+- [x] File Metadata Microservice
