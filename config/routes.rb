@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  get '/file-metadata', to: 'file_metadata#index'
-  post '/file-metadata', to: 'file_metadata#upload'
-
   namespace :api do
     get '/timestamp', to: 'timestamp#show'
     get '/timestamp/:string', to: 'timestamp#show'
@@ -12,6 +9,9 @@ Rails.application.routes.draw do
 
     get '/shorturl/:id', to: 'shorturl#show'
     post '/shorturl/new', to: 'shorturl#create'
+
+    get '/file-metadata', to: 'file_metadata#index'
+    post '/file-metadata', to: 'file_metadata#upload'
 
     namespace :exercisetracker  do
       resources :users, only: [:index, :create, :show] do
